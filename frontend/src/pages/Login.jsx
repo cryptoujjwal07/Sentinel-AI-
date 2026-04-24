@@ -37,7 +37,8 @@ export default function Login() {
         toast.success('Account created! Welcome aboard.');
       }
     } catch (err) {
-      const msg = err.response?.data?.message || 'Something went wrong';
+      const errors = err.response?.data?.errors;
+      const msg = errors?.length ? errors[0].message : (err.response?.data?.message || 'Something went wrong');
       toast.error(msg);
     } finally {
       setLoading(false);

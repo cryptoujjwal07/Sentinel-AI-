@@ -27,9 +27,7 @@ const registerRules = [
   body('username')
     .trim()
     .notEmpty().withMessage('Username is required')
-    .isLength({ min: 3, max: 30 }).withMessage('Username must be 3-30 characters')
-    .matches(/^[a-zA-Z0-9_]+$/).withMessage('Username can only contain letters, numbers, and underscores')
-    .escape(),
+    .isLength({ min: 3, max: 30 }).withMessage('Username must be 3-30 characters'),
   body('email')
     .trim()
     .notEmpty().withMessage('Email is required')
@@ -37,8 +35,7 @@ const registerRules = [
     .normalizeEmail(),
   body('password')
     .notEmpty().withMessage('Password is required')
-    .isLength({ min: 6 }).withMessage('Password must be at least 6 characters')
-    .matches(/^(?=.*[a-zA-Z])(?=.*\d)/).withMessage('Password must contain at least one letter and one number'),
+    .isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
 ];
 
 // ── Login validation rules ────────────────────────────────────────────────────
