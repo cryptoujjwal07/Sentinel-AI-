@@ -39,8 +39,7 @@ const userSchema = new mongoose.Schema(
     googleId: {
       type: String,
       unique: true,
-      sparse: true, // Allows multiple null values (only Google users have this)
-      default: null,
+      sparse: true, // Allows documents without this field (only Google users have it)
     },
     authType: {
       type: String,
